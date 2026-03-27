@@ -1,0 +1,58 @@
+[
+  {
+    "ContainingType": "a_private_bank_api.Controllers.APrivateBankController",
+    "Method": "GetPeopleAsync",
+    "RelativePath": "api/APrivateBank/GetPeopleAsync",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "a_private_bank_api.Controllers.APrivateBankController",
+    "Method": "GetPersonAsync",
+    "RelativePath": "api/APrivateBank/GetPersonAsync",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "personId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "a_private_bank_api.Controllers.APrivateBankController",
+    "Method": "ImportData",
+    "RelativePath": "api/APrivateBank/ImportDataAsync",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "a_private_bank_api.Controllers.APrivateBankController",
+    "Method": "PostImportedDataToDbAsync",
+    "RelativePath": "api/APrivateBank/PostImportedDataToDbAsync",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Boolean",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  }
+]
