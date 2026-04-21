@@ -21,7 +21,15 @@ public partial class AprivateBankContext : DbContext
 
     public virtual DbSet<TransactionsStatementEntityModel> TransactionsStatements { get; set; }
 
-       protected override void OnModelCreating(ModelBuilder modelBuilder)
+    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+    {
+        if (!optionsBuilder.IsConfigured)
+        {
+            optionsBuilder.UseSqlServer("Server=localhost\\SQLEXPRESS04;Database=APrivateBank;Trusted_Connection=True;TrustServerCertificate=True;");
+        }
+    }
+
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<Account>(entity =>
         {
