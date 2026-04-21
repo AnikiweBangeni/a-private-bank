@@ -5044,11 +5044,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\0209255666080\\source\\Projects 2026\\a-private-bank\\a-private-bank-main\\a-private-bank-main\\a-private-bank-main.csproj",
+      "projectUniqueName": "C:\\Users\\0209255666080\\source\\Projects 2026\\Private Bank\\a-private-bank\\a-private-bank-main\\a-private-bank-main\\a-private-bank-main.csproj",
       "projectName": "a-private-bank-main",
-      "projectPath": "C:\\Users\\0209255666080\\source\\Projects 2026\\a-private-bank\\a-private-bank-main\\a-private-bank-main\\a-private-bank-main.csproj",
+      "projectPath": "C:\\Users\\0209255666080\\source\\Projects 2026\\Private Bank\\a-private-bank\\a-private-bank-main\\a-private-bank-main\\a-private-bank-main.csproj",
       "packagesPath": "C:\\Users\\0209255666080\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\0209255666080\\source\\Projects 2026\\a-private-bank\\a-private-bank-main\\a-private-bank-main\\obj\\",
+      "outputPath": "C:\\Users\\0209255666080\\source\\Projects 2026\\Private Bank\\a-private-bank\\a-private-bank-main\\a-private-bank-main\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -5081,7 +5081,7 @@
         "auditLevel": "low",
         "auditMode": "direct"
       },
-      "SdkAnalysisLevel": "9.0.300"
+      "SdkAnalysisLevel": "10.0.200"
     },
     "frameworks": {
       "net9.0": {
@@ -5132,16 +5132,8 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.312/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.201/PortableRuntimeIdentifierGraph.json"
       }
     }
-  },
-  "logs": [
-    {
-      "code": "NU1900",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Error occurred while getting package vulnerability data: Unable to load the service index for source https://pkgs.dev.azure.com/PSGHub/Distribution/_packaging/PSG-Distribution-Packages/nuget/v3/index.json."
-    }
-  ]
+  }
 }
