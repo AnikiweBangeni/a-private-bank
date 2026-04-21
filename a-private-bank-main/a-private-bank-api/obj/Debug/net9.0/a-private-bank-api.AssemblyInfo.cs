@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("a-private-bank-api")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2635500793fb2be90cd65c1f69fdb9a606a32e4f")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e25b705780d3215eaa27c53fe85a931c7612855e")]
 [assembly: System.Reflection.AssemblyProductAttribute("a-private-bank-api")]
 [assembly: System.Reflection.AssemblyTitleAttribute("a-private-bank-api")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -14,9 +14,7 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddScoped<IPersonResourceContracts, GetPerson>();
 builder.Services.AddScoped<IDataResourceContracts, ImportData>();
 builder.Services.AddDbContext<AprivateBankContext>(options =>
-    options.UseSqlServer(( "Server=localhost\\SQLEXPRESS03;Database=APrivateBank;Trusted_Connection=True;TrustServerCertificate=True;" )));
-
-
+    options.UseSqlServer((builder.Configuration.GetConnectionString("DefaultConnection"))));
 
 var app = builder.Build();
     if (app.Environment.IsDevelopment())
