@@ -1,14 +1,15 @@
 ﻿using a_private_bank_main.Contracts;
 using a_private_bank_main.Models;
+using a_private_bank_main.Models;
 using CsvHelper;
+using CsvHelper.Configuration;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using a_private_bank_main.Models;
-using Microsoft.EntityFrameworkCore;
 
 namespace a_private_bank_main.Resources
 {
@@ -25,11 +26,28 @@ namespace a_private_bank_main.Resources
         {
             try
             {
-                var dataDocPath = @"C:\Users\0209255666080\source\Projects 2026\Downloads\account_statement_1-Dec-2025_to_14-Mar-2026.csv";
+                var folderPath = @"C:\Users\0209255666080\source\Projects 2026\Documents";
 
-                using (var readDoc = new StreamReader(dataDocPath))
+        var dataDocFile = new DirectoryInfo(folderPath)
+            .GetFiles("*.csv")
+            .OrderByDescending(x => x.LastWriteTime)
+            .FirstOrDefault();
 
-                using (var docContent = new CsvReader(readDoc, CultureInfo.InvariantCulture))
+        if (dataDocFile == null)
+        {
+            throw new FileNotFoundException("No CSV files found in the folder.");
+        }
+                var config = new CsvConfiguration(CultureInfo.InvariantCulture)
+                {
+                    HeaderValidated = null,
+                    MissingFieldFound = null,
+                    PrepareHeaderForMatch = args => args.Header?.Trim(),
+                    TrimOptions = TrimOptions.Trim
+                };
+
+                using (var readDoc = new StreamReader(dataDocFile.FullName))
+
+                using (var docContent = new CsvReader(readDoc, config))
                 {
                     var docRecords = docContent.GetRecords<TransactionsStatement>().Where(x => x.Balance >= 0).ToList();
 
@@ -51,33 +69,37 @@ namespace a_private_bank_main.Resources
 
 
 
-        public async  Task<bool> PostImportedDataToDbAsync( )
+        public async Task<bool> PostImportedDataToDbAsync( )
         {
-            var data = this.ImportDataDocAsync().Result;
+            var data = await this.ImportDataDocAsync();
 
-            if (data == null)
-            {
-                throw new InvalidOperationException("No data to import. ImportDataDocAsync returned null.");
-            }
+            if (data == null || !data.Any())
+                throw new InvalidOperationException("No data to import. ImportDataDocAsync returned null or empty.");
 
-            var existing = await _dbContext.TransactionsStatements.Select(x => x.Nr).ToListAsync();
+            var existing = await _dbContext.TransactionsStatements
+                .Select(x => x.Nr)
+                .ToListAsync();
 
-            await _dbContext.TransactionsStatements.AddRangeAsync(data.Where(c => !existing.Contains(c.Nr)).Select(x => new TransactionsStatementEntityModel
-            {
-                Account = x.Account,
-                Balance = x.Balance,
-                Category = x.Category,
-                Description = x.Description,
-                Fee = x.Fee,
-                MoneyIn = x.MoneyIn,
-                MoneyOut = x.MoneyOut,
-                Nr = x.Nr,
-                OriginalDescription = x.OriginalDescription,
-                ParentCategory = x.ParentCategory,
-                PostingDate = x.PostingDate,
-                TransactionDate = x.TransactionDate,
+            var newRecords = data
+                .Where(c => !existing.Contains(c.Nr))
+                .Select(x => new TransactionsStatement
+                {
+                    Account = x.Account,
+                    Balance = x.Balance,
+                    Category = x.Category,
+                    Description = x.Description,
+                    Fee = x.Fee,
+                    MoneyIn = x.MoneyIn,
+                    MoneyOut = x.MoneyOut,
+                    Nr = x.Nr,
+                    OriginalDescription = x.OriginalDescription,
+                    ParentCategory = x.ParentCategory,
+                    PostingDate = x.PostingDate,
+                    TransactionDate = x.TransactionDate
+                })
+                .ToList();
 
-            }));
+            await _dbContext.TransactionsStatements.AddRangeAsync(newRecords);
 
             await _dbContext.SaveChangesAsync();
 

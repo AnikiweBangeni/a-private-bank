@@ -154,7 +154,6 @@ C:\Users\0209255666080\source\Projects 2026\Private Bank\a-private-bank\a-privat
 C:\Users\0209255666080\source\Projects 2026\Private Bank\a-private-bank\a-private-bank-main\a-private-bank-api\obj\Debug\net9.0\a-private-bank-api.AssemblyInfoInputs.cache
 C:\Users\0209255666080\source\Projects 2026\Private Bank\a-private-bank\a-private-bank-main\a-private-bank-api\obj\Debug\net9.0\a-private-bank-api.AssemblyInfo.cs
 C:\Users\0209255666080\source\Projects 2026\Private Bank\a-private-bank\a-private-bank-main\a-private-bank-api\obj\Debug\net9.0\a-private-bank-api.csproj.CoreCompileInputs.cache
-C:\Users\0209255666080\source\Projects 2026\Private Bank\a-private-bank\a-private-bank-main\a-private-bank-api\obj\Debug\net9.0\a-private-bank-api.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\0209255666080\source\Projects 2026\Private Bank\a-private-bank\a-private-bank-main\a-private-bank-api\obj\Debug\net9.0\a-private-bank-api.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\0209255666080\source\Projects 2026\Private Bank\a-private-bank\a-private-bank-main\a-private-bank-api\obj\Debug\net9.0\a-private-bank-api.sourcelink.json
 C:\Users\0209255666080\source\Projects 2026\Private Bank\a-private-bank\a-private-bank-main\a-private-bank-api\obj\Debug\net9.0\rjimswa.dswa.cache.json
