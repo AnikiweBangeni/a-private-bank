@@ -1,0 +1,30 @@
+# Environment variables
+.env
+.env.*
+
+# Logs
+*.log
+
+# OS junk files
+.DS_Store
+Thumbs.db
+
+# Dependency folders
+node_modules/
+
+# Build folders
+dist/
+build/
+out/
+
+# Python cache
+__pycache__/
+*.pyc
+
+# IDE / editor files
+.vscode/
+.idea/
+
+# Temporary files
+*.tmp
+*.swp
